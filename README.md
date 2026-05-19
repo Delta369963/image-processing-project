@@ -1,18 +1,19 @@
-````markdown
 # Wall Crack Detection AI
 
 A deep learning based computer vision system for detecting structural wall cracks using Convolutional Neural Networks and Grad-CAM explainability.
 
 The project combines:
-- CNN classification
-- Explainable AI visualisation
-- FastAPI backend
-- React frontend
-- Real-time image inference
+
+* CNN classification
+* Explainable AI visualisation
+* FastAPI backend
+* React frontend
+* Real-time image inference
 
 The system analyses uploaded wall images and predicts whether the wall is:
-- Cracked
-- Non-cracked
+
+* Cracked
+* Non-cracked
 
 It also generates Grad-CAM heatmaps showing the regions the model focused on while making predictions.
 
@@ -21,57 +22,65 @@ It also generates Grad-CAM heatmaps showing the regions the model focused on whi
 # Features
 
 ## Deep Learning Classification
-- ResNet18 transfer learning
-- Fine-tuned on wall crack datasets
-- Real-time inference
+
+* ResNet18 transfer learning
+* Fine-tuned on wall crack datasets
+* Real-time inference
 
 ## Explainable AI
-- Grad-CAM heatmap generation
-- Visual interpretation of CNN attention
+
+* Grad-CAM heatmap generation
+* Visual interpretation of CNN attention
 
 ## Backend
-- FastAPI REST API
-- Image upload endpoint
-- Prediction API
-- Heatmap serving
+
+* FastAPI REST API
+* Image upload endpoint
+* Prediction API
+* Heatmap serving
 
 ## Frontend
-- React + Vite
-- TailwindCSS modern UI
-- Dynamic predictions
-- Live image preview
-- Interactive dashboard
+
+* React + Vite
+* TailwindCSS modern UI
+* Dynamic predictions
+* Live image preview
+* Interactive dashboard
 
 ## Training Pipeline
-- Dataset preprocessing
-- Augmentation support
-- Validation monitoring
-- Early stopping
-- Checkpoint saving
+
+* Dataset preprocessing
+* Augmentation support
+* Validation monitoring
+* Early stopping
+* Checkpoint saving
 
 ---
 
 # Tech Stack
 
 ## Machine Learning
-- PyTorch
-- Torchvision
-- TIMM
-- OpenCV
-- Albumentations
-- NumPy
-- Pillow
+
+* PyTorch
+* Torchvision
+* TIMM
+* OpenCV
+* Albumentations
+* NumPy
+* Pillow
 
 ## Backend
-- FastAPI
-- Uvicorn
+
+* FastAPI
+* Uvicorn
 
 ## Frontend
-- React
-- Vite
-- TailwindCSS
-- Framer Motion
-- Axios
+
+* React
+* Vite
+* TailwindCSS
+* Framer Motion
+* Axios
 
 ---
 
@@ -105,7 +114,7 @@ image-processing-project/
 ├── requirements.txt
 
 └── README.md
-````
+```
 
 ---
 
@@ -290,6 +299,3 @@ Nikhil Sharma
 # License
 
 This project is intended for educational and research purposes.
-
-```
-```

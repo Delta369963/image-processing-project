@@ -3,6 +3,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
 import shutil
+import os
 import uuid
 
 from src.inference.predict import (
@@ -93,6 +94,10 @@ async def predict(
     heatmap_path = generate_gradcam(
         temp_filename
     )
+
+    if os.path.exists(temp_filename):
+
+        os.remove(temp_filename)
 
     # =====================================================
     # RESPONSE

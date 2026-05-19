@@ -1,6 +1,7 @@
 import cv2
 import torch
 import numpy as np
+import uuid
 
 from PIL import Image
 
@@ -71,10 +72,19 @@ cam = GradCAM(
 # GENERATE HEATMAP
 # =========================================================
 
-def generate_gradcam(
-    image_path,
-    output_path="outputs/heatmaps/gradcam.jpg"
-):
+def generate_gradcam(image_path):
+
+    # =====================================================
+    # UNIQUE OUTPUT NAME
+    # =====================================================
+
+    filename = (
+        f"gradcam_{uuid.uuid4()}.jpg"
+    )
+
+    output_path = (
+        f"outputs/heatmaps/{filename}"
+    )
 
     # =====================================================
     # LOAD ORIGINAL IMAGE
@@ -85,9 +95,8 @@ def generate_gradcam(
     ).convert("RGB")
 
     resized_image = original_image.resize(
-    (224, 224)
+        (224, 224)
     )
-
 
     rgb_image = np.array(
         resized_image
@@ -108,7 +117,7 @@ def generate_gradcam(
     )
 
     # =====================================================
-    # IMPORTANT
+    # ENABLE GRADIENTS
     # =====================================================
 
     input_tensor.requires_grad = True
@@ -124,27 +133,38 @@ def generate_gradcam(
     grayscale_cam = grayscale_cam[0]
 
     # =====================================================
-    # OVERLAY HEATMAP
+    # OVERLAY
     # =====================================================
 
     visualization = show_cam_on_image(
+
         rgb_image,
+
         grayscale_cam,
+
         use_rgb=True
     )
 
     # =====================================================
-    # SAVE
+    # SAVE IMAGE
     # =====================================================
 
     visualization = cv2.cvtColor(
+
         visualization,
+
         cv2.COLOR_RGB2BGR
     )
 
     cv2.imwrite(
+
         output_path,
+
         visualization
     )
+
+    # =====================================================
+    # RETURN PATH
+    # =====================================================
 
     return output_path
